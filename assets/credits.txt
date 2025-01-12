@@ -1,7 +1,6 @@
 # IMAGES
 
-Micro Roguelike Assets by Kenney
-https://kenney.nl/assets/micro-roguelike
+
 
 # AUDIO
 
