@@ -1,5 +1,5 @@
 local help = require("demo.help")
-local BasePlayerTopDown = require("src.BasePlayerTopDown")
+local BasePlayerTopDown = require("base.BasePlayerTopDown")
 local Box = require("demo.topdown.Box")
 local Button = require("demo.topdown.Button")
 local Logo = require("demo.Logo")

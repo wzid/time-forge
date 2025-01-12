@@ -1,4 +1,4 @@
-local Hitbox = require("src.Hitbox")
+local Hitbox = require("base.Hitbox")
 local Ripple = require("demo.Ripple")
 ---@class Button: Hitbox
 ---@overload fun(x: number?, y: number?): Button

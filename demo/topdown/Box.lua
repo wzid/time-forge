@@ -1,5 +1,5 @@
-local Hitbox = require("src.Hitbox")
-local BasePlayerTopDown = require("src.BasePlayerTopDown")
+local Hitbox = require("base.Hitbox")
+local BasePlayerTopDown = require("base.BasePlayerTopDown")
 ---Example of using collision masks/layers to control collisions
 ---@class Box: Hitbox
 ---@overload fun(x: number?, y: number?): Box

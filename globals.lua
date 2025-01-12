@@ -7,13 +7,13 @@
 ---place.
 
 -- Classes
-NODE = require("src.Node")
-SIGNAL = require("src.Signal")
+NODE = require("base.Node")
+SIGNAL = require("base.Signal")
 
 -- Singletons
-INPUT = require("src.singleton.Input")
-WINDOW = require("src.singleton.Window")
-DEBUG = require("src.singleton.Debug")
+INPUT = require("base.singleton.Input")
+WINDOW = require("base.singleton.Window")
+DEBUG = require("base.singleton.Debug")
 
 -- Libraries
 LIB = {
