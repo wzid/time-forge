@@ -14,5 +14,6 @@ https://kenney.nl/assets/rpg-audio
 
 # FONTS
 
-m3x6, m5x7 and m6x11 by Daniel Linssen
-https://managore.itch.io/
+monogram by Vinícius Menézio
+@vmenezio
+https://datagoblin.itch.io/monogram
