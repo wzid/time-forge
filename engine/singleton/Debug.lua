@@ -1,6 +1,6 @@
-local Signal = require("src.Signal")
-local Input = require("src.singleton.Input")
-local Window = require("src.singleton.Window")
+local Signal = require("engine.Signal")
+local Input = require("engine.singleton.Input")
+local Window = require("engine.singleton.Window")
 
 ---Debug-focused manager. By checking `Debug.is_enabled` and adding funcs to the
 ---`updated` and `drawn` Signals, you can add debug utilities that are easily

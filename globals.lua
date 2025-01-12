@@ -7,13 +7,13 @@
 ---place.
 
 -- Classes
-NODE = require("base.Node")
-SIGNAL = require("base.Signal")
+NODE = require("engine.Node")
+SIGNAL = require("engine.Signal")
 
 -- Singletons
-INPUT = require("base.singleton.Input")
-WINDOW = require("base.singleton.Window")
-DEBUG = require("base.singleton.Debug")
+INPUT = require("engine.singleton.Input")
+WINDOW = require("engine.singleton.Window")
+DEBUG = require("engine.singleton.Debug")
 
 -- Libraries
 LIB = {
@@ -30,10 +30,9 @@ LIB = {
 }
 
 -- Collections
-ANIMATIONS = require("assets.data.collections.animations")
-COLORS = require("assets.data.collections.colors")
-FONTS = require("assets.data.collections.fonts")
-IMAGES = require("assets.data.collections.images")
-SOUNDS = require("assets.data.collections.sounds")
+COLORS = require("assets.collections.colors")
+FONTS = require("assets.collections.fonts")
+IMAGES = require("assets.collections.images")
+SOUNDS = require("assets.collections.sounds")
 
 LIB.log.trace("Loaded globals")

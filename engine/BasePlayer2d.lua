@@ -1,4 +1,4 @@
-local Hitbox = require("src.Hitbox")
+local Hitbox = require("engine.Hitbox")
 ---A barebones player character to extend from or drop into your game for instant
 ---interactivity.
 ---
@@ -20,8 +20,8 @@ function BasePlayer2d:new(x, y, use_alt_graphics)
 	self._is_flipped = false
 	self._gravity = 12
 	self._jump_velocity = -5
-	self._animation_table = use_alt_graphics and ANIMATIONS.player_alt or ANIMATIONS.player
-	self._animation = self._animation_table.idle
+	-- self._animation_table = use_alt_graphics and ANIMATIONS.player_alt or ANIMATIONS.player
+	-- self._animation = self._animation_table.idle
 end
 
 function BasePlayer2d:update(dt)
@@ -39,11 +39,11 @@ function BasePlayer2d:update(dt)
 	self:move_and_collide()
 
 	-- Update animations
-	if self.is_grounded then
-		self._animation = move_x == 0 and self._animation_table.idle or self._animation_table.run
-	else
-		self._animation = self.vy < 0 and self._animation_table.jump or self._animation_table.fall
-	end
+	-- if self.is_grounded then
+	-- 	self._animation = move_x == 0 and self._animation_table.idle or self._animation_table.run
+	-- else
+	-- 	self._animation = self.vy < 0 and self._animation_table.jump or self._animation_table.fall
+	-- end
 
 	if move_x ~= 0 then
 		self._is_flipped = move_x < 0
@@ -53,7 +53,7 @@ end
 function BasePlayer2d:draw()
 	local scale = self._is_flipped and -1 or 1
 	local x_offset = self._is_flipped and 16 or 0
-	self._animation:draw(self.x - 4 + x_offset, self.y - 3, 0, scale, 1)
+	-- self._animation:draw(self.x - 4 + x_offset, self.y - 3, 0, scale, 1)
 	BasePlayer2d.super.draw(self)
 end
 

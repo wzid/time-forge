@@ -1,9 +1,9 @@
 local moses = require("lib.moses.moses")
 local bump = require("lib.bump.bump")
-local colors = require("assets.data.collections.colors")
-local Debug = require("src.singleton.Debug")
-local Signal = require("src.Signal")
-local Node = require("src.Node")
+local colors = require("assets.collections.colors")
+local Debug = require("engine.singleton.Debug")
+local Signal = require("engine.Signal")
+local Node = require("engine.Node")
 ---A Node wrapper around `bump`. A Hitbox's "collision layers" are the layers it
 ---exists in, and its "collision masks" are the layers it looks for when checking
 ---for collisions.

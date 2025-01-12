@@ -1,4 +1,4 @@
-local Hitbox = require("src.Hitbox")
+local Hitbox = require("engine.Hitbox")
 ---A barebones player character to extend from or drop into your game for instant
 ---interactivity.
 ---
@@ -18,8 +18,8 @@ function BasePlayerTopDown:new(x, y, use_alt_graphics)
 	self.speed = 80
 	self.debug_draw_mode = "line"
 	self._facing_direction = "down"
-	self._animation_table = use_alt_graphics and ANIMATIONS.player_alt or ANIMATIONS.player
-	self._animation = self._animation_table.idle_down
+	-- self._animation_table = use_alt_graphics and ANIMATIONS.player_alt or ANIMATIONS.player
+	-- self._animation = self._animation_table.idle_down
 end
 
 function BasePlayerTopDown:update(dt)
@@ -32,8 +32,8 @@ function BasePlayerTopDown:update(dt)
 	BasePlayerTopDown.super.update(self, dt)
 
 	-- Update animations
-	local state = (move_x == 0 and move_y == 0) and "idle" or "walk"
-	local previous_animation = self._animation
+	-- local state = (move_x == 0 and move_y == 0) and "idle" or "walk"
+	-- local previous_animation = self._animation
 
 	-- Play push animation, but only when colliding and not holding a diagonal direction
 	if #self.collisions > 0 and (math.abs(move_x) + math.abs(move_y) <= 1) then
@@ -52,15 +52,15 @@ function BasePlayerTopDown:update(dt)
 		end
 	end
 
-	self._animation = self._animation_table[state .. "_" .. self._facing_direction]
+	-- self._animation = self._animation_table[state .. "_" .. self._facing_direction]
 
-	if self._animation ~= previous_animation then
-		self._animation.data:gotoFrame(1)
-	end
+	-- if self._animation ~= previous_animation then
+	-- 	self._animation.data:gotoFrame(1)
+	-- end
 end
 
 function BasePlayerTopDown:draw()
-	self._animation:draw(self.x - 2, self.y - 2)
+	-- self._animation:draw(self.x - 2, self.y - 2)
 	BasePlayerTopDown.super.draw(self)
 end
 

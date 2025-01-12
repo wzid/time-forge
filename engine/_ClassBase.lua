@@ -1,4 +1,4 @@
-local Node = require("src.Node")
+local Node = require("engine.Node")
 ---Copy/paste this to skip basic boilerplate. You can delete the `require` there
 ---and just use `NODE:extend()` (provided you have globals enabled).
 ---

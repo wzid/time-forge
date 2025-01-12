@@ -1,33 +1,30 @@
 local push = require("lib.push.push")
 local timer = require("lib.hump.timer")
 local log = require("lib.log.log")
-local colors = require("assets.data.collections.colors")
-local Window = require("base.singleton.Window")
-local Input = require("base.singleton.Input")
-local Debug = require("base.singleton.Debug")
+local colors = require("assets.collections.colors")
+local Window = require("engine.singleton.Window")
+local Input = require("engine.singleton.Input")
+local Debug = require("engine.singleton.Debug")
 local Node
 local root
-local animations
 
 
 function love.load()
 	Window:setup(3)
 	love.window.setTitle("Project Skeleton")
-	push:setBorderColor(colors.b16_black)
+	push:setBorderColor(colors.black_23:unpack())
 
-	Node = require("base.Node")
+	Node = require("engine.Node")
 	root = Node()
-	animations = require("assets.data.collections.animations")
 
 	require("globals")
-	require("demo")(root, "topdown")
+	require("src")(root)
 	log.info("Finished loading")
 end
 
 function love.update(dt)
 	Input:update()
 	timer.update(dt)
-	animations:update(dt)
 	root:update(dt)
 	Debug:update(dt)
 end

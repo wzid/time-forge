@@ -14,8 +14,7 @@ local new = function (r, g, b, a)
 	color.r = math.min(255, r)
 	color.g = math.min(255, g)
 	color.b = math.min(255, b)
-	color.a = a or 255
-	color.a = math.min(255, color.a)
+	color.a = math.min(255, a or 255)
 	return color
 end
 
@@ -23,7 +22,8 @@ end
 ---@param val number 0 - 255 value
 ---@return Color
 function Color:alpha(val)
-	return new(self.r, self.g, self.b, val)
+	self.a = math.max(0, math.min(255, val))
+	return self
 end
 
 
