@@ -1,39 +1,66 @@
----A few common colors, plus this particular project's palette of choice,
----Bubblegum 16. https://lospec.com/palette-list/bubblegum-16
+---@class Color rgb color class for converting values to float values
+Color = { r = 0, g = 0, b = 0, a = 255 }
+Color.__index = Color
 
-local function color(r, g, b, a)
-	return {love.math.colorFromBytes(r, g, b, a)}
+--- Creates a new instance of the Color class and returns it
+---@param r number red: 0 - 255
+---@param g number green: 0 - 255
+---@param b number blue: 0 - 255
+---@param a? number alpha: 0 - 255
+---@return Color
+local new = function (r, g, b, a)
+	local color = {}
+	setmetatable(color, Color)
+	color.r = math.min(255, r)
+	color.g = math.min(255, g)
+	color.b = math.min(255, b)
+	color.a = a or 255
+	color.a = math.min(255, color.a)
+	return color
 end
 
+---Sets the alpha value of the color and returns the color for a builder structure
+---@param val number 0 - 255 value
+---@return Color
+function Color:alpha(val)
+	return new(self.r, self.g, self.b, val)
+end
+
+
+---Sets the alpha value of the color
+---@param val number 0 - 255 value
+function Color:set_alpha(val)
+	self.a = val
+end
+
+---Returns a new color making the color darker or lighter
+---@param val number any value from 0 onwards
+---@return Color
+function Color:change_percentage(val)
+	return new(self.r * val, self.g * val, self.b * val, self.a)
+end
+
+
+
+---Unpacks the Color class to the rgba components
+---@return number r # Red color component in 0..1 range.
+---@return number g # Green color component in 0..1 range.
+---@return number b # Blue color component in 0..1 range.
+---@return number b # Blue color component in 0..1 range.
+function Color:unpack()
+    return love.math.colorFromBytes(self.r, self.g, self.b, self.a)
+end
+
+-- https://lospec.com/palette-list/yperocha-chromata
 return {
-	-- White's fully transparent to fully reset love.graphics.setColor.
-	white = {1, 1, 1, 1},
-	black = {0, 0, 0},
-	gray = {0.5, 0.5, 0.5},
-	transparent = {1, 1, 1, 0},
-
-	red = {1, 0, 0},
-	green = {0, 1, 0},
-	blue = {0, 0, 1},
-
-	cyan = {0, 1, 1},
-	magenta = {1, 0, 1},
-	yellow = {1, 1, 0},
-
-	b16_black = color(22, 23, 26),
-	b16_dark_red = color(127, 6, 34),
-	b16_red = color(214, 36, 17),
-	b16_orange = color(255, 132, 38),
-	b16_yellow = color(255, 209, 0),
-	b16_white = color(250, 253, 255),
-	b16_light_pink = color(255, 128, 164),
-	b16_pink = color(255, 38, 116),
-	b16_dark_pink = color(148, 33, 106),
-	b16_purple = color(67, 0, 103),
-	b16_dark_blue = color(35, 73, 117),
-	b16_light_blue = color(104, 174, 212),
-	b16_light_green = color(191, 255, 60),
-	b16_green = color(16, 210, 117),
-	b16_cyan = color(0, 120, 153),
-	b16_dark_cyan = color(0, 40, 89),
+	new = new,
+	white = new(255, 255, 255),
+	black = new(0, 0, 0),
+	black_23 = new(23, 23, 23),
+	black_35 = new(35, 35, 35),
+	dark_blue = new(14, 84, 128),
+	blue = new(23, 120, 153),
+	red = new(255, 85, 85),
+	faded_white = new(221, 221, 221),
+	green = new(38, 128, 67), --#55FF55
 }
